@@ -1,0 +1,52 @@
+scalar DateTime
+
+type Query{
+    allUsers:[User!]!
+    allComments:[Comment!]!
+    getAuthor(id: Int!): Author
+    getComment: Comment
+    getCommentsBook(id: Int! first: Int=5 start: Int=0): [Comment!]!
+    getAllAuthors: [Author!]!
+    getAllBooks: [Book!]!
+    getBook(id: Int!): Book
+}
+
+type User{
+    id:Int!
+    name:String
+    password:String
+}
+
+type Author {
+    id: Int!
+    first_name: String!
+    last_name: String!
+    bio: String!
+    book: [Book!]!
+}
+type Book {
+    id: Int!
+    name: String!
+    description: String!
+    release_date: DateTime!
+    author: [Author!]!
+    totalComment: Int!
+    comment(first: Int=5 start: Int=0):[Comment!]!
+}
+type Comment{
+    id: Int!
+    text: String!
+}
+
+type AuthPayload {
+    token: String!
+    user: User!
+}
+
+type Mutation {
+    createAuthor(first_name: String!, last_name: String!, bio: String): Author!
+    createBook( AuthorId: Int!, name: String!, description: String!,release_date: DateTime!): Book!
+    createUser( name: String!, password: String!): User!
+    login(name:String!,password:String!):AuthPayload!
+    signUp(name:String!,password:String!):AuthPayload!
+}

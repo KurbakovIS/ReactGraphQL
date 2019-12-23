@@ -1,0 +1,34 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "set NODE_ENV=development&&nodemon -e js,json,graphql"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@graphile-contrib/pg-simplify-inflector": "^5.0.0-beta.1",
+    "apollo-server-express": "^2.9.9",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "latest",
+    "cors": "latest",
+    "express": "latest",
+    "graphql": "^14.5.8",
+    "graphql-sequelize": "^9.3.6",
+    "graphql-tools": "latest",
+    "jsonwebtoken": "^8.5.1",
+    "nconf": "^0.10.0",
+    "nodemon": "^1.19.4",
+    "pg": "^7.12.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.2",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "graphql-playground-middleware-express": "^1.7.12"
+  }
+}
